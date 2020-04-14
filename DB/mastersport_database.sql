@@ -225,7 +225,45 @@ CREATE TABLE `products` (
 --    	 values ('RSX-G3','Puma','40','2020','100','CASUAL',100,'Lo bueno siempre vuelve. Las RS-X de PUMA son las zapatillas ochenteras por excelencia, y esta versión X3 Puzzle para hombre llega con un acabado muy colorido.','view/img/zapaspuma.jpg') 
 
  -- CHANDALS 
- 
+
+---------------------------------------------------------------------------------------
+
+-- VOLCADO Y ESTRUCTURA MAS SENTECIA INSERT DE LA TABLAS DE CATEGORIAS DEL HOME
+
+
+create table categories (
+  
+    categoria varchar (50),
+    imagen varchar (50),
+    cont_viewed varchar (20) default 0
+
+)
+
+-- insert into categories 
+-- select categoria,imagen,count_view from products
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -----------------------------------------------------------------------------------------------------
 
 

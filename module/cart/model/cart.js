@@ -159,6 +159,8 @@ function show_cart() {
                             var json = JSON.parse(data);
                             console.log(json)//llegan los productos de ese usuario
                             var subtotal = 0;
+                            var GastosGestion = 0;
+                            //var totali = 0
                             if (json.length == 0) {
                                 //console.log(json.length)
                                 //$("#prods").empty()
@@ -170,6 +172,8 @@ function show_cart() {
                                     if (json[row].stock > 0) {
                                         var precio = parseInt(json[row].precio);
                                         subtotal = subtotal + precio;
+                                        //totali = totali + subtotal;
+                                        //console.log(totali)
                                         $("#prods").append(
                                             '<tr id="' + json[row].idprod + 'd">' +
                                             '<td><img src="' + json[row].imagen + '"  height="50" width="50"/> </td>' +
@@ -207,22 +211,22 @@ function show_cart() {
 
                                 //siempre con dos numeros decimales
                                 var subt = parseFloat(Math.round(subtotal * 100) / 100).toFixed(2);
-                                //console.log(subt)
+                                console.log(subt)
 
                                 //APLICAMOS UN 3% POR LOS GATOS DE GESTION
                                 GastosGestion = (subtotal * 0.03)
-                                //console.log(GastosGestion)
+                                console.log(GastosGestion)
 
                                 //siempre con dos numeros decimales
                                 var gd = parseFloat(Math.round(GastosGestion * 100) / 100).toFixed(2);
-                                //console.log(gd)
+                                console.log(gd)
 
-                                total = subtotal + GastosGestion
-                                //console.log(total)
+                                totali = (subtotal + GastosGestion )
+                                console.log(totali)
 
                                 //siempre con dos numeros decimales
-                                var total = parseFloat(Math.round(total * 100) / 100).toFixed(2);
-                                //console.log(total)
+                                var total = parseFloat(Math.round(totali * 100) / 100).toFixed(2);
+                                console.log(total)
 
 
                                 $("#prods").append(
@@ -258,7 +262,7 @@ function show_cart() {
                             fav('module/cart/controller/controller_cart.php?op=checks', info)
                                 .then(function (data) {
                                     //console.log(JSON.parse(data));
-
+                                    console.log(total)
                                     var check = JSON.parse(data);
                                     console.log(check)
                                     if (check.length == 1) {
@@ -315,7 +319,7 @@ function prova_date() {
             //}
 
         })
-        localStorage.removeItem('prod');
+    localStorage.removeItem('prod');
 }
 
 function action_quecke() {
@@ -335,7 +339,7 @@ function action_quecke() {
         var total = document.getElementById("checkout").rows[tota_row - 1].cells[5].innerHTML
         console.log(total)
 
-        if (checke!='del_check') {
+        if (checke != 'del_check') {
             if (click_cheke == 0) {
 
                 localStorage.setItem('Cheque', checke);
@@ -381,9 +385,9 @@ function show_prices() {
 
     //evitando las cabeceras / titulo
     //Evitando las filas del subtotal,total,etc ya que esas no muestran productos
-    var algo = ((document.getElementById("checkout").rows.length) - 4);
-    console.log(algo )
-    for (i = 1; i <= ((document.getElementById("checkout").rows.length) - 5); i++) {
+    // var algo = ((document.getElementById("checkout").rows.length) - 4);
+    // console.log(algo)
+    for (i = 1; i <= ((document.getElementById("checkout").rows.length) - 5 || (document.getElementById("checkout").rows.length) - 4 ); i++) {
         console.log("enyra for")
 
         //para cada celda observas si esta disponible el producto o no
@@ -573,7 +577,7 @@ function checkout() {
                                     console.log(price_total);
 
 
-                                               
+
                                     var chequereg = localStorage.getItem('Cheque');
                                     console.log(chequereg)
 
