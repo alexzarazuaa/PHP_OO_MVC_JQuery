@@ -1,0 +1,91 @@
+<!-- mian-content -->
+<div class="main-banner inner" id="home">
+  <!-- header -->
+  <header class="header">
+    <div class="container-fluid px-lg-5">
+      <!-- nav -->
+      <nav class="py-4">
+        <div id="logo">
+          <h1> <a href="index.php?page=controller_home&op=list" data-tr="MASTERSPORT"><span class="fa fa-bold"
+                aria-hidden="true"></span></a></h1>
+        </div>
+
+        <label for="drop" class="toggle">Menu</label>
+        <input type="checkbox" id="drop" />
+        <ul class="menu mt-2">
+          <li><a href="index.php?page=controller_home&op=list" data-tr="Inicio"></a></li>
+          <!-- tienda -->
+          <li><a href="index.php?page=controller_shop&op=view" data-tr="Tienda"></a></li>
+
+          <!-- conocenos -->
+          <li>
+            <!-- First Tier Drop Down -->
+            <label for="drop-2" class="toggle" data-tr="CONOCENOS"><span class="fa fa-angle-down"
+                aria-hidden="true"></span>
+            </label>
+          <li>
+            <!-- First Tier Drop Down -->
+            <label for="drop-2" class="toggle">IDIOMA<span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+            <a href="#">IDIOMA<span class="fa fa-angle-down" aria-hidden="true"></span></a>
+            <input type="checkbox" id="drop-2" />
+            <ul>
+
+              <select id="idioma">
+                <option id="btn-es" value="2" data-tr="Castellano"></option>
+                <option id="btn-en" value="0" data-tr="Inglés"></option>
+                <option id="btn-va" value="1" data-tr="Valenciano"></option>
+              </select>
+            </ul>
+          </li>
+          <li><a href="index.php?page=contactus" data-tr="Contacto">Contact</a></li>
+          <li>
+            <div id="nick" class="nick_user"></div>
+            <div id="container"></div>
+          </li>
+          <!-- CARRITO -->
+          <li>
+            <a type="button" class="btn btn-success" href="index.php?page=controller_cart&op=view"
+              data-tr="CARRITO"></a>
+          </li>
+          <!-- /CARRITO -->
+          <!-- REGISTER / LOGIN -->
+          <li><a type="button" class="btn btn-danger" href="index.php?page=controller_login&op=logout"
+              data-tr="Log Out"></a></li>
+
+        </ul>
+      </nav>
+      <!-- //nav -->
+    </div>
+    <!--SEARCH-->
+
+    <ol class="breadcrumb2">
+
+      <form class="search">
+
+
+        <select id="talla">
+          <option value="0" data-tr="Selecciona La Talla"></option>
+        </select>
+
+
+        <select id="marca">
+          <option value="0" data-tr="Selecciona La Marca"></option>
+        </select>
+
+
+        <section class="prod">
+          <input list="name" id="prod" name="prod" />
+          <datalist id="name">
+          </datalist>
+          <div class="btn"><span id="searchlist" class="fa fa-search" aria-hidden="true"></span></div>
+        </section>
+
+
+
+        <!-- <button class="btn"><span class="fa fa-search" aria-hidden="true"></span></button> -->
+        <!--<button class="btn">BUSCAR</button>-->
+      </form>
+    </ol>
+    <!--//SEARCH -->
+
+  </header>

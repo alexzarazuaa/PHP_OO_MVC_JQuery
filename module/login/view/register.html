@@ -1,0 +1,87 @@
+
+<div id="login_header"></div>
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="formlogin" name="formlogin"  role="form" style="display: block;">
+									<div class="form-group">
+										<input type="email" name="email" id="email_log" tabindex="1" class="form-control" placeholder="EmailAddress" value="">
+										<span id="err_emaillog"></span>
+									</div>
+									
+									
+									<div class="form-group">
+										<input type="password" name="password" id="logpassword" tabindex="2" class="form-control" placeholder="password">
+										<span id="err_passlog"></span>
+									</div>
+								
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="login-submit" id="loginbtn" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" name="register_form"  role="form" style="display: none;">
+				
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										
+										<span id="err_email"></span>
+									</div>
+
+									<div class="form-group">
+										<input type="text" name="nickname" id="nickname" tabindex="1" class="form-control" placeholder="Nickname" value="">
+										<span id="err_nickname"></span>
+									</div>
+
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<span id="pasw_er"></span>
+									</div>
+									
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="c_password" tabindex="2" class="form-control" placeholder="Confirm Password">
+										<span id="pasw_er_c"></span>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="button" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
