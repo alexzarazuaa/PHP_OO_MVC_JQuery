@@ -23,18 +23,19 @@
 --
 -- Estructura de tabla para la tabla `sport_pro`
 --
-CREATE TABLE sport_pro
-(
-    codref INT NOT NULL,
-    name VARCHAR(30) NOT NULL,
-    email VARCHAR(30) NOT NULL,
-    cityShop VARCHAR(50),
-    userType VARCHAR(50),
-    habitual VARCHAR(50),
-    sport VARCHAR(50),
-    date_birthday varchar(20),
-    PRIMARY KEY (codref)
-)
+
+CREATE TABLE `sport_pro` (
+  `codref` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `cityShop` varchar(50) DEFAULT NULL,
+  `userType` varchar(50) DEFAULT NULL,
+  `habitual` varchar(50) DEFAULT NULL,
+  `sport` varchar(50) DEFAULT NULL,
+  `date_birthday` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`codref`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
 -- INSERT INTO sport_pro (codref, name, email,cityShop,habitual,sport,userType,date_birthday)
 -- VALUES ("456","alex","alex@gmail.com","Ontinyent","SI","Running","Children","12/06/1987")
 
@@ -54,48 +55,47 @@ CREATE TABLE sport_pro
        from products p inner join shops s
   )
 
+------------------------------------------------------------------
 
--- VOLCADO PARA LA TABLAR DE MOSTRA LAS IMAGENES DE CARROUSEL
+ -- VOLCADO PARA LA TABLAR DE MOSTRA LAS IMAGENES DE CARROUSEL JUNTO CON LAS CATEGORIAS PARA DIRIGIR AL SHOP
 
- CREATE TABLE images
-(
-  
-    nombre VARCHAR(30) NOT NULL,
-    link VARCHAR(30) NOT NULL
+CREATE TABLE `images` (
+  `nombre` varchar(30) NOT NULL,
+  `link` varchar(30) NOT NULL,
+  `categoria` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
-) 
+-- INSERT DE LA TABLA
 
--- insert into images (nombre,link)
--- values ('off-whte1.jpeg','view/img/off-whte1.jpeg')
+--  insert into images (nombre,link,categoria)
+--  values ('off-whte1.jpeg','view/img/off-whte1.jpeg','CALZADO')
 
--- insert into images (nombre,link)
--- values ('img4.jpg','view\images\img4.jpg')
+--  insert into images (nombre,link,categoria)
+--  values ('futsalmunich.jpg','view/img/futsalmunich.jpg','CALZADO')
 
--- insert into images (nombre,link)
--- values ('mercu.jpg','view\img\mercu.jpg')
+--  insert into images (nombre,link,categoria)
+--  values ('runningnike.jpg','view/img/runningnike.jpg','CASUAL')
 
+
+--------------------------------------------------------------------------------------
 
 -- VOLCADO PARA LA TABLA DE EL GMAPS TANTO SHOP COMO DETAILS.
 
- CREATE TABLE maps
- (
- 	Tienda varchar (50),
-    descrip varchar (10000),
-   latitud varchar (500) not null,
-    longitud varchar (500) not null
- )
+CREATE TABLE `maps` (
+  `Tienda` varchar(50) DEFAULT NULL,
+  `dscp` varchar(10000) DEFAULT NULL,
+  `latitud` varchar(500) NOT NULL,
+  `longitud` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 
 -- select *
 -- from maps;
-
---     SET SQL_SAFE_UPDATES = 0;
 
   
 --   UPDATE maps
 -- set  dscp =  '<h2><strong>TIENDA ESTACIO</strong></h2><br><p><h6>IES ESTACIO<br>EN ONTINYENT</h6></p>'
 -- where tienda = 'estacio';
 
-  -- ALTER TABLE maps ADD  dscp varchar(1000);
  
  -- insert into maps (tienda,dscp,latitud,longitud)
   -- values ( 'JD-SPORTS-VALENCIA', '<h2><strong>TIENDA JD VALENCIA</strong></h2><br><p><h6>TIENDA FISICA CALLE MENORCA<br>EN VALENCIA</h6></p>' ,39.456335, -0.345998)
@@ -107,9 +107,12 @@ CREATE TABLE sport_pro
     -- values ( 'JD-SPORTS-MADRID', '<h2><strong>TIENDA JD MADRID</strong></h2><br><p><h6>Centro Comercial Plaza Río 2,<br>En Calle de Antonio López, 109, 28026 Madrid</h6></p>' ,40.390637, -3.700636)
  
   -- insert into maps (tienda,dscp,latitud,longitud)
+
     -- values ( 'JD-SPORTS-BARNA', '<h2><strong>TIENDA JD BARCELONA </strong></h2><br><p><h6>C.C. Glòries,<br>En  Avinguda Diagonal, 208, 08018 Barcelona</h6></p>' ,41.405228, 2.190333)
 
-//
+
+
+-----------------------------------------------------------------------------------
 
 
 -- ESTRUCTURA Y VOLCADO DE LA TABLA DE LOS PRODUCTOS DE LA WEB 
@@ -126,20 +129,22 @@ CREATE TABLE sport_pro
 --           from products 
 --         where categoria = 'CAMISETAS';images
   
- CREATE TABLE products
- (
-    idprod int NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(30) NOT NULL,
-     marca varchar(30) NOT NULL,
-     talla VARCHAR(30) NOT NULL,
-     temporada VARCHAR(50),
-     precio VARCHAR(50),
-     categoria VARCHAR(50),
-     existencias VARCHAR(50),
-     descripcion varchar(2000),
-     imagen varchar (100),
-     PRIMARY KEY (idprod)
--- )
+CREATE TABLE `products` (
+  `idprod` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `marca` varchar(30) NOT NULL,
+  `talla` varchar(30) NOT NULL,
+  `temporada` varchar(50) DEFAULT NULL,
+  `precio` varchar(50) DEFAULT NULL,
+  `categoria` varchar(50) DEFAULT NULL,
+  `existencias` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(2000) DEFAULT NULL,
+  `imagen` varchar(100) DEFAULT NULL,
+  `count_view` varchar(20) DEFAULT NULL,
+  `stock` varchar(50) DEFAULT '10',
+  PRIMARY KEY (`idprod`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4
+
 -- ALTER TABLE products AUTO_INCREMENT=1;
 
 -- ALTER TABLE products
@@ -221,6 +226,8 @@ CREATE TABLE sport_pro
 
  -- CHANDALS 
  
+-----------------------------------------------------------------------------------------------------
+
 
  -- TABLA Y VOLCADO DE LAS DISTINTAS TIENDAS QUE SALEN EN EL GMAPS
 
@@ -232,16 +239,16 @@ CREATE TABLE sport_pro
  -- ALTER TABLE shops drop  descrip ;
  
  -- ALTER TABLE shops AUTO_INCREMENT=1;
- 
- CREATE TABLE shops
- (
- 	idshop int NOT NULL AUTO_INCREMENT,
- 	Tienda varchar (50),
-    descrip varchar (10000),
-    latitud varchar (500) not null,
-    longitud varchar (500) not null,
-   PRIMARY KEY (idshop)
- )
+
+CREATE TABLE `shops` (
+  `idshop` int(11) NOT NULL AUTO_INCREMENT,
+  `Tienda` varchar(50) DEFAULT NULL,
+  `dscp` varchar(10000) DEFAULT NULL,
+  `latitud` varchar(500) NOT NULL,
+  `longitud` varchar(500) NOT NULL,
+  PRIMARY KEY (`idshop`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+
 
  -- ALTER TABLE shops ADD  dscp varchar(1000);
  
@@ -257,6 +264,7 @@ CREATE TABLE sport_pro
     -- insert into shops (tienda,dscp,latitud,longitud)
     --  values ( 'JD-SPORTS-BARNA', '<h2><strong>TIENDA JD BARCELONA </strong></h2><br><p><h6>C.C. Glòries,<br>En  Avinguda Diagonal, 208, 08018 Barcelona</h6></p>' ,41.405228, 2.190333)
 
+--------------------------------------------------------------------------------------
 
 
 -- VOLCADO Y ESTRUCTURA DE LA TABLA DE USERS
@@ -279,18 +287,17 @@ CREATE TABLE sport_pro
 
 -- SET SQL_SAFE_UPDATES=0
 
- create table user 
- (
+CREATE TABLE `user` (
+  `userid` int(11) NOT NULL AUTO_INCREMENT,
+  `user_email` varchar(1000) NOT NULL,
+  `nickname` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `avatar` varchar(50) NOT NULL,
+  `type` varchar(20) DEFAULT 'Client',
+  `points` varchar(50) DEFAULT '0',
+  PRIMARY KEY (`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4
 
-  	 userid int(11) NOT NULL AUTO_INCREMENT,
-		user_email varchar (1000) not null,
-     nickname varchar (20) not null ,
-     password varchar (100) not null,
-     type varchar (20) DEFAULT 'Client',
-     primary key (userid)
-  
-     
- )
  -------------------------------------------------------------
 
  -- MEJORA DE LOS PUNTOS DE COMPRAR PARA EL USER
@@ -447,11 +454,8 @@ create table check_purchase
 	
 )
 
-<<<<<<< HEAD
 -- alter table check_purchase
 -- add column  chek_status tinyint(1) DEFAULT false;
-=======
->>>>>>> ca695e8272ef0928d6f5e64c705f56854bbe9729
 
 
 ----------------------------------------------
